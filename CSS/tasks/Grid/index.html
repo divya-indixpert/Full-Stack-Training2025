@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+
+.container{
+    width: 800px;
+    height: 800px;
+    padding: 7px;
+    border: 2px solid black;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 5px;
+}
+
+.box{
+    border: 3px solid black;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+
+.box1{
+    grid-row: 1 / 3;
+}
+
+.box2{
+    grid-column: 2 / 4;
+}
+
+.box5{
+    grid-column: 3 / 5;
+}
+
+.box7{
+    grid-column: 2 / 4;
+}
+
+.box8{
+    grid-column: 1 / 3;
+}
+
+.box10{
+    grid-row: 3 / 5;
+    grid-column:4 / 5 ;
+}
+
+.box11{
+    grid-row: 5 / 7;
+
+}
+
+.box12{
+    grid-column: 2 / 4;
+}
+
+.box15{
+    grid-column: 3 / 5;
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="box box1">1</div>
+    <div class="box box2">2</div>
+    <div class="box box3">3</div>
+    <div class="box box4">4</div>
+    <div class="box box5">5</div>
+    <div class="box box6">6</div>
+    <div class="box box7">7</div>
+    <div class="box box8">8</div>
+    <div class="box box9">9</div>
+    <div class="box box10">10</div>
+    <div class="box box11">11</div>
+    <div class="box box12">12</div>
+    <div class="box box13">13</div>
+    <div class="box box14">14</div>
+    <div class="box box15">15</div>
+
+</div>
+
+</body>
+</html>

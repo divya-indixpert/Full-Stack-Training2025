@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task4</title>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: repeat(3, 220px);
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .parent{
+            display: flex;
+            flex-direction: column; 
+        }
+
+        .parent img{
+            width: 100px;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .box{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="parent">
+           <img src="https://mdn.github.io/shared-assets/images/examples/balloons1.jpg" alt="first image">
+           <div class="box">
+            <span>ballon</span>
+            <span>red</span>
+            <span>sky</span>
+            <span>blue</span>
+            <span>Hot Air ballon</span>
+           </div>
+        </div>
+
+        <div class="parent1">
+            <img src="https://mdn.github.io/shared-assets/images/examples/balloons2.jpg" alt="second image">
+            <div class="box1">
+                <span>ballons</span>
+                <span>houses</span>
+                <span>train</span>
+                <span>harborside</span>
+            </div>
+        </div>
+
+        <div class="parent2">
+            <img src="https://mdn.github.io/shared-assets/images/examples/balloons3.jpg" alt="third image">
+            <div class="box2">
+                <span>ballons</span>
+                <span>inflating</span>
+                <span>green</span>
+                <span>blue</span>
+            </div>
+        </div>
+
+        <div class="parent3">
+            <img src="https://mdn.github.io/shared-assets/images/examples/balloons4.jpg" alt="fourth iamge">
+            <div class="box3">
+            <span>ballons</span>
+            <span>sun</span>
+            <span>sky</span>
+            <span>sunflower</span>
+            <span>bright</span>
+            </div>
+        
+        </div>
+        
+    </div>
+    
+</body>
+</html>

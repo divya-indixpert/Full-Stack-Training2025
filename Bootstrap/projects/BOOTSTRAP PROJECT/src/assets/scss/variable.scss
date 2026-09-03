@@ -1,0 +1,44 @@
+$primary:#ff9500;
+$light:#f7f7f8;
+
+$grey-300:#f1f1f3;
+$gray-400: #ced4da;
+$gray-500: #59595a;
+$gray-600: #4c4c4d;
+$gray-700: #333333;
+
+
+$grey-800:#262626;
+$grey-900:#1A1A1A;
+
+$font-size-base:"Be Vietnam Pro", sans-serif;
+
+//body
+$body-bg:                   $light;
+
+$font-size-base:              1rem;
+$h1-font-size:                $font-size-base * 3 ;
+$h2-font-size:                $font-size-base * 2.375;
+$h3-font-size:                $font-size-base * 1.5;
+$h4-font-size:                $font-size-base * 1.25;
+$h5-font-size:                $font-size-base * 1.125;
+$h6-font-size:                $font-size-base;
+$headings-font-weight:600;
+
+$display-font-sizes: (
+  1: 5rem,
+  2:3.75rem,
+  
+);
+
+
+$display-font-weight: 600;
+
+//link
+$link-decoration:none;
+$link-color:                           $gray-700;
+
+
+
+$navbar-padding-y:1.25rem;
+$navbar-nav-link-padding-x:1.24rem

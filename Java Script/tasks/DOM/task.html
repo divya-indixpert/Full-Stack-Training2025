@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="number" id="number" placeholder="Enter Number">
+   <button id="btn">Check The Number</button>
+
+
+   <p id="output"></p>
+
+     
+    <script>
+
+        document.getElementById("btn").addEventListener("click",function(){
+            let number = Number(document.getElementById("number").value);
+
+            if (number > 10){
+                document.getElementById("output").innerText="Number is greater than 10";
+            }
+
+            else if (number < 10){
+                document.getElementById("output").innerText="Number"
+            }
+
+            else{
+                document.getElementById("output").innerText="NUmber is equal to 10"
+            }
+            
+
+        });
+        
+    </script>
+    
+</body>
+</html>  

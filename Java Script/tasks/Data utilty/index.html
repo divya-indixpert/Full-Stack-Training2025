@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Utility Toolkit</title>
+</head>
+
+<body>
+
+    <h1>Data Utility</h1>
+
+    <script>
+
+        const users = [{
+            id: 101,
+            name: "  alex JOHNSON ",
+            dob: "1992-06-15",
+            salary: "55000",
+            skills: ["html", "css", "javascript"]
+        }, {
+            id: 102,
+            name: "  maria  smith  ",
+            dob: "1988-11-03",
+            salary: "72000",
+            skills: ["react", "node", "css"]
+        }, {
+            id: 103,
+            name: "john doe",
+            dob: "1996-02-25",
+            salary: "48000",
+            skills: ["vue", "javascript", "html"]
+        }];
+
+
+        //Task1
+
+        const names = users.map((user) => {
+            let name = user.name.trim();
+
+            name = name.toLowerCase();
+
+            name = name.split(" ")
+                .filter(word => word !== "")
+                .map(word => word[0].toUpperCase() + word.slice(1))
+                .join(" ");
+
+            return name;
+        });
+
+        console.log(names);
+
+
+
+        // TASK 2
+
+        let allSkills = users.flatMap(user => user.skills);
+
+        let uniqueSkills = [...new Set(allSkills)];
+
+        uniqueSkills.sort();
+
+        console.log("Unique Skills:", uniqueSkills);
+
+
+        // Count users who know JavaScript
+
+        let javascriptUsers = users.filter(user =>
+            user.skills.includes("javascript")
+        );
+
+        console.log("Users who know JavaScript:", javascriptUsers.length);
+
+
+        // TASK 3: NUMBER OPERATIONS
+
+        let totalSalary = users.reduce((total, user) => {
+            return total + Number(user.salary);
+        }, 0);
+
+        let averageSalary = totalSalary / users.length;
+
+        let salaries = users.map(user => Number(user.salary));
+
+        let highestSalary = Math.max(...salaries);
+  
+        let lowestSalary = Math.min(...salaries);
+
+        console.log("Salary Details:", {
+            average: Math.round(averageSalary),
+            highest: highestSalary,
+            lowest: lowestSalary
+        });
+
+
+        // TASK 4: 
+
+        let usersWithAge = users.map(user => {
+
+            let dob = new Date(user.dob);
+
+            let today = new Date();
+
+            let age = today.getFullYear() - dob.getFullYear();
+
+            let month = today.getMonth() - dob.getMonth();
+
+            if (
+                month < 0 ||
+                (month === 0 && today.getDate() < dob.getDate())
+            ) {
+                age--;
+            }
+
+            return {
+                name: getName(user.name),
+                age: age
+            };
+        });
+
+        function getName(name) {
+
+            name = name.trim();
+
+            let words = name.split(/\s+/);
+
+            words = words.map(word =>
+                word.charAt(0).toUpperCase() +
+                word.slice(1).toLowerCase()
+            );
+
+            return words.join(" ");
+        }
+
+        console.log("Users With Age:", usersWithAge);
+
+
+        //  oldest user
+
+        let oldestUser = usersWithAge.reduce((oldest, user) => {
+
+            if (user.age > oldest.age) {
+                return user;
+            }
+
+            return oldest;
+
+        });
+
+        console.log("Oldest User:", oldestUser);
+
+
+    </script>
+
+</body>
+
+</html>

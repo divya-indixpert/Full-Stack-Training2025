@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data Table</title>
+</head>
+
+<body>
+
+    <h1>User Data Table</h1>
+
+    <table border="1">
+
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>DoB</th>
+                <th>Age</th>
+                <th>Salary</th>
+                <th>Skills</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="userTable"></tbody>
+
+    </table>
+
+
+    <script>
+
+        const users = [
+
+            {
+                id: 101,
+                name: "  alex JOHNSON ",
+                dob: "1992-06-15",
+                salary: "55000",
+                skills: ["html", "css", "javascript"]
+            },
+
+            {
+                id: 102,
+                name: "  maria  smith  ",
+                dob: "1988-11-03",
+                salary: "72000",
+                skills: ["react", "node", "css"]
+            },
+
+            {
+                id: 103,
+                name: "john doe",
+                dob: "1996-02-25",
+                salary: "48000",
+                skills: ["vue", "javascript", "html"]
+            }
+
+        ];
+
+
+        let table = document.querySelector("#userTable");
+
+
+        function displayUsers() {
+
+            table.innerHTML = "";
+
+
+            users.forEach(user => {
+
+
+                // NAME
+
+                let name = user.name
+                    .trim()
+                    .split(/\s+/)
+                    .map(word =>
+                        word[0].toUpperCase() +
+                        word.slice(1).toLowerCase()
+                    )
+                    .join(" ");
+
+
+                // DOB
+
+                let dob = new Date(user.dob);
+
+                let formattedDob = dob.toLocaleDateString("en-GB", {
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric"
+                });
+
+
+                // AGE
+
+                let today = new Date();
+
+                let age = today.getFullYear() - dob.getFullYear();
+
+
+                if (
+                    today.getMonth() < dob.getMonth() ||
+                    (
+                        today.getMonth() === dob.getMonth() &&
+                        today.getDate() < dob.getDate()
+                    )
+                ) {
+                    age--;
+                }
+
+
+                // SKILLS
+
+                let skills = user.skills
+                    .map(skill =>
+                        skill[0].toUpperCase() +
+                        skill.slice(1).toLowerCase()
+                    )
+                    .join(", ");
+
+
+                // TABLE
+
+                table.innerHTML += `
+
+                    <tr>
+
+                        <td>${name}</td>
+
+                        <td>${formattedDob}</td>
+
+                        <td>${age}</td>
+
+                        <td>${Number(user.salary)}</td>
+
+                        <td>${skills}</td>
+
+                        <td>
+
+                            <button onclick="editUser(${user.id})">
+                                Edit
+                            </button>
+
+                            <button onclick="deleteUser(${user.id})">
+                                Delete
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                `;
+
+            });
+
+        }
+
+
+        // DELETE USER
+
+        function deleteUser(id) {
+
+            let index = users.findIndex(user => user.id === id);
+
+            users.splice(index, 1);
+
+            displayUsers();
+
+        }
+
+
+        // EDIT USER
+
+        function editUser(id) {
+
+            let user = users.find(user => user.id === id);
+
+
+            let newName = prompt("Enter Name", user.name);
+
+            let newDob = prompt("Enter Date of Birth", user.dob);
+
+            let newSalary = prompt("Enter Salary", user.salary);
+
+            let newSkills = prompt(
+                "Enter Skills separated by comma",
+                user.skills.join(", ")
+            );
+
+
+            if (newName !== null) {
+                user.name = newName;
+            }
+
+            if (newDob !== null) {
+                user.dob = newDob;
+            }
+
+            if (newSalary !== null) {
+                user.salary = newSalary;
+            }
+
+            if (newSkills !== null) {
+                user.skills = newSkills.split(",");
+            }
+
+
+            displayUsers();
+
+        }
+
+
+
+        displayUsers();
+
+    </script>
+
+</body>
+
+</html>

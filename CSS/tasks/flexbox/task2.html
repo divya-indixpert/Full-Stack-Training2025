@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task3</title>
+
+    <style>
+
+        .container{
+            width: 800px;
+            border: 2px solid blue;
+            padding: 10px;
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .box{
+            background-color: blue;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            
+        }
+
+        .box1{
+            grid-column: 1 / 5;
+        }
+
+     
+        .box2{
+            grid-column: 1 / 2;
+        }
+
+        .box3{
+            grid-column: 2 / 5;
+        }
+
+        
+        .box4{
+            grid-column: 2 / 5;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="box box1">One</div>
+
+        <div class="box box2">Two</div>
+        <div class="box box3">Three</div>
+
+        <div class="box box4">Four</div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+
+
+
+
+.btn-primary{
+    --bs-btn-color:#fff;
+    --bs-btn-hover-color:#fff;
+    --bs-btn-active-color:#fff;
+    --bs-btn-disabled-color:#fff;
+}
+
+.btn-light:hover{
+    background-color: $primary;
+}
+
+
+
+
+
+
+
+@import './header.scss';
+@import './footer.scss'
